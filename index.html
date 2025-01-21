@@ -3,31 +3,120 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Snake Game</title>
     <style>
-        body{
-           
+        body {
             margin: 0px;
             padding: 0px;
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-        canvas{
-            box-shadow: rgb(147, 252, 147) 10px 20px 40px;
+            align-items:center;
+            font-family: 'Arial', sans-serif;
+            background-color: #282c34;
+            color: white;
+            background-image:url("images/background_images.jpg");
         
         }
 
-    </style>    
+        #game-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: flex-start;
+            margin-top: 20px;
+        }
+
+        #leaderboard {
+            background-color: #1e1e1e;
+            border: 2px solid #4caf50;
+            border-radius: 10px;
+            padding: 20px;
+            margin-right: 20px;
+            width: 200px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        #leaderboard h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #4caf50;
+            text-align: center;
+        }
+
+        #scores {
+            list-style: none;
+            padding: 0;
+            
+        }
+
+        #scores li {
+            background: #333;
+            padding: 8px 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+            font-size: 18px;
+            text-align: center;
+            color: #fff;
+        }
+
+        canvas {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            border: 2px solid #4caf50;
+            border-radius: 10px;
+        }
+
+        #reset-btn {
+        
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 18px;
+            font-weight: bold;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        #reset-btn:hover {
+            background-color: #45a049;
+            transform: scale(1.05);
+        }
+
+        #reset-btn:active {
+            transform: scale(0.95);
+        }
+
+        @media (max-width: 768px) {
+            #game-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            #leaderboard {
+                margin-bottom: 20px;
+                margin-right: 0;
+                width: 100%;
+                max-width: 300px;
+            }
+
+            canvas {
+                margin-bottom: 20px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <link rel="stylesheet" href="snake.css">
-    <h1 style="background-color:rgb(30, 255, 188);">Aayan Khhan</h1>
-    <span style='font-size:100px;'>&#128013;</span>
-    
-    <canvas id="game" width="400" height="400"/>
-    <script src="snake.js"></script>
-
+    <div id="game-container">
+        <div id="leaderboard">
+            <h1>Leaderboard</h1>
+            <ul id="scores"></ul>
+        </div>
+        <canvas id="game" width="700" height="700"></canvas>
+    </div>
+    <button id="reset-btn">Play Again</button>
+    <script src="js/snake.js"></script>
 </body>
 </html>
